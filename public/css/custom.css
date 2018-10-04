@@ -1,0 +1,355 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+body {
+    background-color: rgba(43,43,43,.9);
+    padding-top: 60px;
+    padding-bottom: 30px;
+/*    background: url(../images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;*/
+}
+
+.panel-marawthon {
+    position: relative;
+    border-radius: 0px;
+    border: 1px solid rgb(216, 216, 216);
+    font-family: 'Lato', sans-serif;
+    -webkit-box-shadow: 1px 1px 8px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 1px 1px 8px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 1px 1px 22px 0px rgba(50, 50, 50, 0.75);
+}
+.panel-marawthon > .dropdown {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+.panel-marawthon > .dropdown > span > span {
+    font-size: 10px;   
+}
+.panel-marawthon > .dropdown > .dropdown-menu {
+    left: initial;
+    right: 0px;
+    border-radius: 2px;
+}
+.panel-marawthon > .panel-marawthon-tags {
+    position: absolute;
+    top: 35px;
+    right: -3px;
+}
+.panel-marawthon > .panel-marawthon-tags > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.panel-marawthon > .panel-marawthon-tags > ul:hover {
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);   
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);   
+}
+.panel-marawthon > .panel-marawthon-tags > ul > li {
+    display: block;
+    right: 0px;
+    width: 0px;
+    padding: 5px 0px 5px 0px;
+    background-color: rgb(245, 245, 245);
+    font-size: 12px;
+    overflow: hidden;
+}
+.panel-marawthon > .panel-marawthon-tags > ul > li::after {
+    content:"";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+	border-right: 3px solid rgb(66, 127, 237);
+}
+.panel-marawthon > .panel-marawthon-tags > ul:hover > li,
+.panel-marawthon > .panel-marawthon-tags > ul > li:first-child {
+    padding: 5px 15px 5px 10px;
+    width: auto;
+    cursor: pointer;
+    margin-left: auto;
+}
+.panel-marawthon > .panel-marawthon-tags > ul:hover > li {
+    background-color: rgb(255, 255, 255);   
+}
+.panel-marawthon > .panel-marawthon-tags > ul > li:hover {
+    background-color: rgb(66, 127, 237);
+    color: rgb(255, 255, 255);
+}
+.panel-marawthon > .panel-heading,
+.panel-marawthon > .panel-footer {
+    background-color: rgb(255, 255, 255);
+    border-width: 0px; 
+}
+.panel-marawthon > .panel-heading {
+    margin-top: 20px;    
+    padding-bottom: 5px; 
+}
+.panel-marawthon > .panel-heading > img { 
+    margin-right: 15px;
+}
+.panel-marawthon > .panel-heading > h3 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.panel-marawthon > .panel-heading > h5 {
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    font-weight: 400;
+}
+.panel-marawthon > .panel-body {
+    padding-top: 5px;
+    font-size: 13px;
+}
+.panel-marawthon > .panel-body > .panel-marawthon-image {
+    display: block;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(217, 217, 217);
+}
+.panel-marawthon > .panel-body > .panel-marawthon-image > img {
+    max-width: 100%;
+}
+
+.panel-marawthon > .panel-footer {
+    font-size: 14px;
+    font-weight: 700;
+    min-height: 54px;
+}
+.panel-marawthon > .panel-footer > .btn {
+    float: left;
+    margin-right: 8px;
+}
+.panel-marawthon > .panel-footer > .input-placeholder {
+    display: block;
+    margin-left: 98px;
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 6px 7px;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+}
+.panel-marawthon.panel-marawthon-show-comment > .panel-footer > .input-placeholder {
+    display: none;   
+}
+.panel-marawthon > .panel-marawthon-comment {
+    display: none;
+    padding: 10px 20px 15px;
+    border-top: 1px solid rgb(229, 229, 229);
+    background-color: rgb(245, 245, 245);
+}
+.panel-marawthon.panel-marawthon-show-comment > .panel-marawthon-comment {
+    display: block;
+}
+/*.panel-marawthon > .panel-marawthon-comment > img {
+    float: left;   
+}*/
+.panel-marawthon > .panel-marawthon-comment > .panel-marawthon-textarea {
+    float: right;
+    width: calc(100% - 56px);
+}
+.panel-marawthon > .panel-marawthon-comment > .panel-marawthon-textarea > textarea {
+    display: block;
+    /*margin-left: 60px;
+    width: calc(100% - 56px);*/
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(217, 217, 217);
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+    resize: vertical;
+}
+.panel-marawthon > .panel-marawthon-comment > .panel-marawthon-textarea > .btn {
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .panel-marawthon > .panel-marawthon-comment > .panel-marawthon-textarea > .btn {
+        width: auto;
+    }    
+}
+
+
+.panel-marawthon .btn {
+    border-radius: 3px;   
+}
+.panel-marawthon .btn-default {
+    border: 1px solid rgb(217, 217, 217);
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+}
+.panel-marawthon .btn-default:hover, 
+.panel-marawthon .btn-default:focus, 
+.panel-marawthon .btn-default:active {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);    
+}
+
+/*
+ *  Custom CSS for UniBrass news feed.
+ */
+
+.panel-marawthon .meta {
+    font-size: 9pt;
+    font-weight: 400;
+    color: #9E9E9E;
+}
+
+.panel-marawthon .meta i {
+    font-size: 10pt;
+    color: #9E9E9E;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.panel-marawthon .meta i:hover {
+    font-size: 10pt;
+    color: #3F3F3F;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.panel-marawthon.twitter .panel-heading {
+    text-align: center;
+}
+
+.panel-marawthon.twitter .panel-heading h3 {
+    margin-top: 10px;
+    font-size: 18pt;
+}
+
+.panel-marawthon.twitter .panel-heading h5 {
+    font-size: 11pt;
+    margin-top: 2px;
+}
+
+.panel-marawthon.twitter .panel-heading img {
+    margin-right: 0;
+}
+
+.panel-marawthon.twitter .panel-body p {
+    font-size: 16pt;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.panel-marawthon hr {
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+.panel-marawthon .panel-body a {
+    color: #0B667f;
+    font-weight: bold;
+    border-bottom: 1px dashed #0B667f;
+    margin: 0 2px;
+}
+
+.panel-marawthon .panel-heading a {
+    color: #0B667f;
+}
+
+.panel-marawthon a:hover {
+    text-decoration: none;
+}
+
+.panel-marawthon .profile-img {
+    border-radius: 30%;
+    width: 55px;
+    height: 55px;
+}
+
+.panel-marawthon .source-icon {
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    padding: 10px;
+    font-size: 34px;
+    line-height: 0.6;
+    background-color: #B8B8B8;
+    border-radius: 40%;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.panel-marawthon.article .panel-heading h3 {
+    font-size: 18pt;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+.panel-marawthon.admin .panel-heading h3 {
+    font-size: 18pt;
+    margin-bottom: 30px;
+}
+
+.panel-marawthon.article .panel-body img {
+    max-width: 100%;
+    padding: 5px;
+}
+
+.panel-marawthon.photo .panel-body img {
+    width: 100%;
+    padding: 5px;
+}
+
+.panel-marawthon.photo .panel-body {
+    margin-top: 20px;
+}
+
+.panel-marawthon .panel-body td {
+    padding: 8px;
+}
+
+.panel-marawthon .panel-body th {
+    padding: 8px;
+}
+
+.panel-marawthon .panel-body table i {
+    padding-right: 15px;
+    vertical-align: middle;
+    font-size: 12pt;
+}
+
+.panel-marawthon.photo .panel-body table a {
+    border: 0px;
+    color: #000000;
+}
+
+.panel-marawthon.youtube .panel-footer h3 {
+    font-size: 18pt;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+.panel-marawthon.youtube .panel-body {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+/* quote, video, article, image, facebook */
+
+.navbar-default {
+    background-color: rgba(248, 248, 248, 0.95);
+    border: 0;
+    -o-transition: all .9s;
+    -ms-transition: all .9s;
+    -moz-transition: all .9s;
+    -webkit-transition: all .9s;
+    transition: all .9s;
+}
+
+.footer {
+    background-color: rgba(248, 248, 248, 0.4);
+    border: 0;
+}
