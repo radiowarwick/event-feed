@@ -2,6 +2,7 @@
 
 <!-- Begin page content -->
     <div class="container">
+
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon twitter">
@@ -57,6 +58,15 @@
 
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+          <div class="col-md-2 offset-md-2"></div>
+          <div class="col-md-10">
+            <div id="jg-widget-raw1251am-536" class="text-center"></div><script>(function(){var id="jg-widget-raw1251am-536",doc=document,pfx=(window.location.toString().indexOf("https")==0)?"https":"http";var el=doc.getElementById(id);if(el){var js=doc.createElement('script');js.src=pfx+"://widgets.justgiving.com/fundraisingpage/raw1251am?enc=ZT1qZy13aWRnZXQtcmF3MTI1MWFtLTUzNiZ3PTQwMCZiPWltYWdlLGRvbmF0ZSZpYj1vd25lcix0aXRsZSxzdW1tYXJ5LHByb2dyZXNzLHJhaXNlZCx0YXJnZXQ%3D";el.parentNode.insertBefore(js, el);}})();</script>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon article">
             <div class="panel-heading">
               <h3 style="margin-bottom: 20px;">Sample article post</h3>
@@ -74,6 +84,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
@@ -118,7 +129,6 @@
         </div>
       </div>
     </div>
-
 </div>
 
 
