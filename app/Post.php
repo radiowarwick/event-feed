@@ -8,10 +8,9 @@ class Post extends Model
 {
 
   protected $table = 'Posts';
-  protected $primaryKey = 'url';
+  protected $primaryKey = 'id';
   protected $keyType = 'string';
   public $timestamps = false;
-  protected $type;
 
   public function postType(){
     $site = $this->site();
