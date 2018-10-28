@@ -16,6 +16,7 @@ class PostController extends Controller
     $type = $request->input('type');
     $newPost = new Post;
     $newPost->url = $request->input('url');
+    $newPost->uid = $request->input('uid');
     $newPost->type = $type;
   }
 }

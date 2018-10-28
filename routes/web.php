@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add', function () {
     return view('manage.add');
 });
+
+//post request for uploading audio, sends request to uploadPost function in the postController
+Route::post('/manage/add','PostController@uploadPost')->name('upload-post');
