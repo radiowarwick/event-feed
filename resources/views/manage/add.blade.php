@@ -31,7 +31,8 @@
             <hr>
             <div class="panel-body">
 
-              <form class="form-horizontal" action="?" method="post">
+              <form class="form-horizontal" action="{{ route('upload-post') }}" method="post">
+              @csrf
               <fieldset>
 
               <!-- Select Basic -->
@@ -282,6 +283,7 @@
 </script>
 
 <?php
+/*
 ############### THIS NEEDS PUTTING IN A CONTROLLER ###############
 
 # Load Twitter class
@@ -316,4 +318,5 @@ $tweetText = preg_replace('/(^|\s)#([a-z0-9_]+)/i', '$1<a href="http://twitter.c
 
 # Output
 echo $tweetText;
+*/
 ?>

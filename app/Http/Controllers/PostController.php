@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -18,5 +19,7 @@ class PostController extends Controller
     $newPost->url = $request->input('url');
     $newPost->uid = $request->input('uid');
     $newPost->type = $type;
+    $newPost->save();
+    return view('feed');
   }
 }
