@@ -18,22 +18,21 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+  function showLoginForm(){
+    return view('auth/login');
+  }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+  function postLogin(Request $request){
+    if(auth()->attempt($request->only(['username','password']),true)){
+      return redirect()->route('/');
     }
+
+    return redirect()->back->withErrors('Incorrect username/password, please try again');
+  }
+
+  function logout(Request $request){
+    auth()->logout();
+    return redirect()->route('login')->with('status','Logged out successfully');
+  }
 }

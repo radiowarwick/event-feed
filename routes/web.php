@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controller\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add', function () {
     return view('manage.add');
 });
+
+
+//login controller routing
+Route::post('/auth/login','LoginController@postLogin')->name('post-login');
+
 
 //post request for uploading audio, sends request to uploadPost function in the postController
 Route::post('/manage/add','PostController@uploadPost')->name('upload-post');
