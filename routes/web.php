@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controller\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +26,7 @@ Route::get('/add', function () {
 
 
 //login controller routing
-Route::post('/auth/login','LoginController@postLogin')->name('post-login');
+Route::post('/auth/login','Auth\LoginController@postLogin')->name('post-login');
 
 
 //post request for uploading audio, sends request to uploadPost function in the postController
