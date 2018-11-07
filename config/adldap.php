@@ -34,7 +34,7 @@ return [
             |
             */
 
-            'auto_connect' => env('ADLDAP_AUTO_CONNECT', true),
+            'auto_connect' => true,
 
             /*
             |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
             |
             */
 
-            'schema' => Adldap\Schemas\ActiveDirectory::class,
+            'schema' => Adldap\Schemas\OpenLDAP::class,
 
             /*
             |--------------------------------------------------------------------------
@@ -98,7 +98,7 @@ return [
                 |
                 */
 
-                'account_prefix' => env('ADLDAP_ACCOUNT_PREFIX'),
+                'account_prefix' => env('LDAP_ACCOUNT_PREFIX'),
 
                 /*
                 |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ return [
                 |
                 */
 
-                'account_suffix' => env('ADLDAP_ACCOUNT_SUFFIX'),
+                'account_suffix' => env('LDAP_ACCOUNT_SUFFIX'),
 
                 /*
                 |--------------------------------------------------------------------------
@@ -127,7 +127,7 @@ return [
                 |
                 */
 
-                'domain_controllers' => array(env('LDAP_SERVER'),
+                'domain_controllers' => array(env('LDAP_SERVER')),
 
                 /*
                 |--------------------------------------------------------------------------
@@ -138,7 +138,7 @@ return [
                 |
                 */
 
-                'port' => env('ADLDAP_PORT'),
+                'port' => env('LDAP_PORT'),
 
                 /*
                 |--------------------------------------------------------------------------
