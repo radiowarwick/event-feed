@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -31,7 +32,7 @@ class LoginController extends Controller
     ]);
 
     if (auth()->attempt($request->only(['username', 'password']), true)) {
-			return view('feed');
+			return redirect()->route('feed');
 		}
 		return redirect()->back()->withErrors(
 			 'Username and/or Password is wrong!'
@@ -40,6 +41,6 @@ class LoginController extends Controller
 
   function logout(Request $request){
     auth()->logout();
-    return redirect()->route('login')->with('status','Logged out successfully');
+    return redirect()->route('feed');
   }
 }

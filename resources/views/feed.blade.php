@@ -72,9 +72,10 @@
               echo "Hello ";
               echo auth()->user()->name;
               echo " and welcome to the RAW 1251AM charity broadcast event feed.";
+              echo "<a href='logout'>Logout</a>";
             }
             else{
-              echo "Hi, please login to your RAW account if you wish to upload posts";
+              echo "Hi, please <a href='login'>login</a> to your RAW account if you wish to upload posts";
             }
           ?>
           </div>

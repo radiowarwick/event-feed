@@ -12,9 +12,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('feed');
-});
+})->name('feed');
 
 Auth::routes();
 
