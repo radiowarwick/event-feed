@@ -27,6 +27,7 @@ Route::get('/add', function () {
 
 //login controller routing
 Route::post('/auth/login','Auth\LoginController@postLogin')->name('post-login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 //post request for uploading audio, sends request to uploadPost function in the postController
