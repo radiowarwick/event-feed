@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -24,11 +25,17 @@ class LoginController extends Controller
   }
 
   function postLogin(Request $request){
-    if(auth()->attempt($request->only(['username','password']),true)){
-      return redirect()->route('/');
-    }
+    $this->validate($request, [
+        'username' => 'required',
+        'password' => 'required',
+    ]);
 
-    return redirect()->back->withErrors('Incorrect username/password, please try again');
+    if (auth()->attempt($request->only(['username', 'password']), true)) {
+			return view('feed');
+		}
+		return redirect()->back()->withErrors(
+			 'Username and/or Password is wrong!'
+		);
   }
 
   function logout(Request $request){

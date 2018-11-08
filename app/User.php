@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Adldap\Laravel\Facades\Adldap;
 
 class User extends Authenticatable
 {
@@ -15,7 +15,7 @@ class User extends Authenticatable
     use Notifiable;
 
     public function getLdapAttribute($attribute){
-      return Adlap:search()->where('uid','=',$this->username)->get('items')->get(0)['attributes'][$attribute][0];
+      return Adldap::search()->where('uid','=',$this->username)->get('items')->get(0)['attributes'][$attribute][0];
     }
 
 }
