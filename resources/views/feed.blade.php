@@ -66,6 +66,23 @@
 
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+          <div class="[ panel panel-default]">
+          <?php
+            if (!is_null(auth()->user())){
+              echo "Hello ";
+              echo auth()->user()->name;
+              echo " and welcome to the RAW 1251AM charity broadcast event feed.";
+            }
+            else{
+              echo "Hi, please login to your RAW account if you wish to upload posts";
+            }
+          ?>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon article">
             <div class="panel-heading">
               <h3 style="margin-bottom: 20px;">Sample article post</h3>
