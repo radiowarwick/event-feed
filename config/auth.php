@@ -70,10 +70,10 @@ return [
             'model' => App\User::class,
         ],
 
-        //'ldap' => [
-        //    'driver' => 'adldap',
-        //    'model' => App\User::class,
-        //],
+        'ldap' => [
+            'driver' => 'adldap',
+            'model' => App\User::class,
+        ],
     ],
 
     /*
