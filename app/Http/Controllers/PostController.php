@@ -8,6 +8,15 @@ use App\Post;
 class PostController extends Controller
 {
 
+  public function getAllPostHTML(){
+    $html ="";
+    $posts = Post::all();
+    foreach($posts as $post){
+      $html = $html.$post->generateHTML();
+    }
+    return $html;
+  }
+
   public function getPost(Request $request){
     $post = Post::where('id',$request->input('id'));
     return $post->generateHTML();

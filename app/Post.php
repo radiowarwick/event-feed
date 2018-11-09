@@ -13,28 +13,17 @@ class Post extends Model
   public $timestamps = false;
 
 
-  public function postType(){
-    $site = $this->site();
-    $type = "null";
-    switch($site){
-      case "twitter":
-        $type = "tweet";
-        break;
-      case "instagram":
-        $type = "instagram post";
-        break;
+  public function generateHTML(){
+    switch($this->type){
+    case 0:
+      return $this->generateTweet();
+      break;
     }
-    return $type;
   }
 
-  private function site(){
-    $domain = explode('.'.$this->domain($this->url));
-    return domain[0];
-  }
-
-  private function domain($url){
-    $parsed = parse_url($url);
-    return $parsed['host'];
+  private function generateTweet(){
+    $tweet = json_decode(file_get_contents("https://publish.twitter.com/oembed?url=https://twitter.com/Interior/status/".$this->url));
+    return $tweet->html;
   }
 
 }
