@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/post', 'PostController@getPostPage');
+
 Route::get('/add', function () {
     return view('manage.add');
 });

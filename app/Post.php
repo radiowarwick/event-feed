@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-  protected $table = 'Posts';
+  protected $table = 'posts';
   protected $primaryKey = 'id';
   protected $keyType = 'string';
   public $timestamps = false;
+
 
   public function postType(){
     $site = $this->site();
