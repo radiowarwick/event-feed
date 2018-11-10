@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+<?php use App\Post; use App\Http\Controllers\PostController;?>
 <!-- Begin page content -->
     <div class="container">
       <div class="row">
@@ -136,6 +136,11 @@
           </div>
         </div>
       </div> 
+
+<?php
+$ctrl = new PostController;
+echo $ctrl->getAllPostHTML();
+?>
 
     <div class="row">
       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">

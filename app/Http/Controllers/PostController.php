@@ -67,6 +67,7 @@ class PostController extends Controller
     $newArticle = new Article;
     $newArticle->title = $request->input('title');
     $newArticle->text = $request->input('content'); 
+    $newArticle->user = auth()->user()->name;
     $newArticle->save();
     $newPost->url = $newArticle->id; 
     $newPost->save();

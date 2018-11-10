@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title',80);
             $table->string('text',250);
+            $table->string('user',30);
         });
     }
 

@@ -24,6 +24,9 @@ class Article extends Model
             "</div>
             <div class='panel-footer'>
               <hr>
+              <p class='meta' style='margin:0;'> Posted by "
+            .$this->user.
+            ".</p>
             </div>
           </div>
         </div>
