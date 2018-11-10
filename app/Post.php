@@ -31,9 +31,7 @@ class Post extends Model
 
   private function generateArticle(){
     $article = Article::where('id',$this->url)->first();
-    $title = $article->title;
-    $text = $article->text;
-    return "Title:".$title." Content:".$text;
+    return $article->getHTML();
   }
 
 }
