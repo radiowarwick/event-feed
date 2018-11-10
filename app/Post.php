@@ -18,12 +18,22 @@ class Post extends Model
     case 0:
       return $this->generateTweet();
       break;
+    case 2:
+      return $this->generateArticle();
+      break;
     }
   }
 
   private function generateTweet(){
     $tweet = json_decode(file_get_contents("https://publish.twitter.com/oembed?url=https://twitter.com/Interior/status/".$this->url));
     return $tweet->html;
+  }
+
+  private function generateArticle(){
+    $article = Article::where('id',$this->url)->first();
+    $title = $article->title;
+    $text = $article->text;
+    return "Title:".$title." Content:".$text;
   }
 
 }

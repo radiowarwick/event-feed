@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Article;
 
 class PostController extends Controller
 {
@@ -38,7 +39,7 @@ class PostController extends Controller
         $this->uploadFacebook();
         break;
       case 2:
-        $this->uploadArticle();
+        $this->uploadArticle($request);
         break;
       case 3:
         $this->uploadPhoto();
@@ -47,26 +48,33 @@ class PostController extends Controller
         $this->uploadYoutube();
         break;
     }
-    return view('feed');
+    return redirect('/');
   }
 
   public function uploadTweet(Request $request){
     $newPost = new Post;
     $newPost->url = $request->input('tweet-id');
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
-    $newPost->type = $request->input('type');
+    $newPost->type = 0;
     $newPost->save();
   }
 
 
-  public function uploadArticle(){
+  public function uploadArticle(Request $request){
     $newPost = new Post;
-    $newPost->url = "NULL";
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
-    $newPost->type = $type;
+    $newPost->type = 2;
+    $newArticle = new Article;
+    $newArticle->title = $request->input('title');
+    $newArticle->text = $request->input('content'); 
+    $newArticle->save();
+    $newPost->url = $newArticle->id; 
     $newPost->save();
   }
 
-  public function uploadInstagram(){
-  }
+  //public function uploadInstagram(){
+  //  $newPost = new Post;
+  //  $newPost->url = $request->input('instagram-id');
+  //}
+
 }
