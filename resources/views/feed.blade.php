@@ -2,6 +2,7 @@
 <?php use App\Post; use App\Http\Controllers\PostController;?>
 <!-- Begin page content -->
     <div class="container">
+    <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon twitter">
@@ -16,7 +17,9 @@
           </div>
         </div>
       </div>
+      -->
 
+      <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon twitter">
@@ -32,7 +35,9 @@
           </div>
         </div>
       </div>
+      -->
 
+      <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon twitter">
@@ -54,6 +59,7 @@
           </div>
         </div>
       </div>
+      -->
 
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
@@ -83,6 +89,7 @@
         </div>
       </div>
 
+      <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon article">
@@ -102,7 +109,9 @@
           </div>
         </div>
       </div>
+      -->
 
+      <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon photo">
@@ -118,7 +127,9 @@
           </div>
         </div>
       </div>
+      -->
 
+      <!--
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon youtube">
@@ -136,6 +147,7 @@
           </div>
         </div>
       </div> 
+      -->
 
 <?php
 $ctrl = new PostController;

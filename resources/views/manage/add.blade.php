@@ -45,6 +45,7 @@
                     <option value="2">Article</option>
                     <option value="3" disabled>Photo (Not available)</option>
                     <option value="4">YouTube</option>
+                    <option value="5">Instagram</option>
                   </select>
                 </div>
               </div>
@@ -66,6 +67,19 @@
                     <input id="tweet-id" name="tweet-id" type="text" placeholder="" class="form-control input-md">  
                     <span class="input-group-btn">
                       <button id="tweet-preview" class="btn btn-primary" >Preview</button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group" style="display: none;">
+                <label class="col-md-4 control-label" for="instagram-id">Instagram ID: </label>  
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <input id="instagram-id" name="instagram-id" type="text" placeholder="" class="form-control input-md">  
+                    <span class="input-group-btn">
+                      <button id="instagram-preview" class="btn btn-primary" >Preview</button>
                     </span>
                   </div><!-- /input-group -->
                 </div>
@@ -268,6 +282,13 @@
             $('#title').parent().parent().fadeIn(1000);
             $('#description').parent().parent().fadeIn(1000);
             $('#submit').parent().parent().fadeIn(1000);
+          }
+          else if ( $( this).text() == "Instagram" ){
+            $('fieldset').children().fadeOut("slow");
+            $('#type').parent().parent().fadeIn(1000);
+            $('#instagram-id').parent().parent().fadeIn(1000);
+            $('#submit').parent().parent().fadeIn(1000);
+
           }
         });
       }).change();
