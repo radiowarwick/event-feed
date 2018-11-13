@@ -73,18 +73,14 @@
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default]">
-          <?php
-            if (!is_null(auth()->user())){
-              echo "Hello ";
-              echo auth()->user()->name;
-              echo " and welcome to the RAW 1251AM charity broadcast event feed.";
-              echo " If you want to upload a post do it <a href='post'>here</a>.";
-              echo "<a href='logout'>Logout</a>";
-            }
-            else{
-              echo "Hi, please <a href='login'>login</a> to your RAW account if you wish to upload posts";
-            }
-          ?>
+          @if(auth()->user() == null)
+            Hello {{ auth()->user()->name}}, welcome to the charity feed. If you want to post do it <a href="{{ route('post') }}">here</a>.
+            <br>
+            <a href="{{ route('logout') }}">Log out</a>
+          @else
+            Hi, please <a href="login">login</a> to your RAW account if you wish to upload posts.
+          @endif
+
           </div>
         </div>
       </div>
@@ -140,13 +136,13 @@
               <h3 style="margin-bottom: 10px;">Call It What You Want w/ Radio 1's Nick Grimshaw</h3>
               As part of the Radio 1 Freshers Tour, Nick Grimshaw dropped in to co-host a special RAW show with our very own Tilly Goodall.
               <br><br>
-              On the show Nick played Call It What You Want, a game where guests rename various different words. He also talked dressing gowns, dogs and Wetherspoons. See what other items Grimmy renamed as he plays Call It What You Want on RAW 1251AM 
+              On the show Nick played Call It What You Want, a game where guests rename various different words. He also talked dressing gowns, dogs and Wetherspoons. See what other items Grimmy renamed as he plays Call It What You Want on RAW 1251AM
               <hr>
               <p class="meta" style="margin: 0;">Posted by James Van Hinsbergh at 2:44pm<span style="float: right;"><a href="https://www.facebook.com/sharer/sharer.php?u=https://live.radio.warwick.ac.uk" target="_blank"><i class="fa fa-facebook"></a></i><a href="http://twitter.com/share?text=&url=https://live.radio.warwick.ac.uk&hashtags=marawthon18&via=raw1251am" target="_blank"><i class="fa fa-twitter" style="margin: 0 20px;"></a></i><a href="https://plus.google.com/share?url=https://live.radio.warwick.ac.uk" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google"></i></a></span></p>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       -->
 
 <?php
@@ -164,5 +160,3 @@ echo $ctrl->getAllPostHTML();
       </div>
     </div>
 </div>
-
-
