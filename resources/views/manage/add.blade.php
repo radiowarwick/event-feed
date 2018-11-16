@@ -78,9 +78,6 @@
                 <div class="col-md-8">
                   <div class="input-group">
                     <input id="instagram-id" name="instagram-id" type="text" placeholder="" class="form-control input-md">  
-                    <span class="input-group-btn">
-                      <button id="instagram-preview" class="btn btn-primary" >Preview</button>
-                    </span>
                   </div><!-- /input-group -->
                 </div>
               </div>
@@ -286,7 +283,7 @@
           else if ( $( this).text() == "Instagram" ){
             $('fieldset').children().fadeOut("slow");
             $('#type').parent().parent().fadeIn(1000);
-            $('#instagram-id').parent().parent().fadeIn(1000);
+            $('#instagram-id').parent().parent().parent().fadeIn(1000);
             $('#submit').parent().parent().fadeIn(1000);
 
           }

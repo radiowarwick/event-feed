@@ -48,6 +48,9 @@ class PostController extends Controller
       case 4:
         $this->uploadYoutube($request);
         break;
+      case 5:
+        $this->uploadInstagram($request);
+        break;
     }
     return redirect('/');
   }
@@ -88,9 +91,12 @@ class PostController extends Controller
     $newPost->save();
   }
 
-  //public function uploadInstagram(){
-  //  $newPost = new Post;
-  //  $newPost->url = $request->input('instagram-id');
-  //}
+  public function uploadInstagram($request){
+    $newPost = new Post;
+    $newPost->uid = auth()->user()->getLdapAttribute("uid");
+    $newPost->type = 5;
+    $newPost->url = $request->input('instagram-id');
+    $newPost->save();
+  }
 
 }
