@@ -13,7 +13,7 @@ class PostController extends Controller
     $html ="";
     $posts = Post::all();
     foreach($posts as $post){
-      $html = $html.$post->generateHTML();
+      $html = $post->generateHTML().$html;
     }
     return $html;
   }

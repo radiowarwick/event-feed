@@ -4,6 +4,7 @@ namespace App;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Post extends Model
 {
@@ -47,20 +48,33 @@ class Post extends Model
     $tweetText = preg_replace('/(^|\s)#([a-z0-9_]+)/i', '$1<a href="http://twitter.com/search?q=$2" target="_blank">#$2</a>', $tweetText);
     
     $html = "<div class='row'>
+              <div class='[ col-xs-12 col-sm-offset-2 col-sm-8 ]'>
               <div class='[ panel panel-default ] panel-marawthon'>
+                <div class='panel-heading'>
+                  <img class='[ profile-img ]' src='"
+                  .$tweets->user->profile_image_url.
+                  "'>
+                  <h5><span><a href='".$tweets->user->url."'>@".$tweets->user->name."</a></span></h5>
+                </div>
+                <hr style='width: 30%; margin-bottom: 25px;'>
                 <div class='panel-body'> "
             .$tweetText.
             "   </div> 
                 <div class='panel-footer'>
+                  <hr>
+                  <p class='meta' style='margin:0;'>
                   Posted by "
-                  .$tweets->user->name.
-                "</div>
+                  .User::where('username',$this->uid)->first()->name.
+                  "
+                  </p>
+                  </div>
+              </div>
               </div>
             </div>";
     return $html;
     }
 
-  
+ 
 
   private function generateArticle(){
     $article = Article::where('id',$this->url)->first();
