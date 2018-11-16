@@ -73,12 +73,21 @@
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default]">
-          @if(auth()->user() == null)
-            Hello {{ auth()->user()->name}}, welcome to the charity feed. If you want to post do it <a href="{{ route('post') }}">here</a>.
+          @if(!is_null(auth()->user()))
+            <div class="panel-heading">
+            Hello {{ auth()->user()->name}}, welcome to the charity feed.
+            </div>            
+            <div class="panel-body">
+            If you want to post do it <a href="{{ route('post') }}">here</a>.
+            </div>
             <br>
+            <div class="panel-footer">
             <a href="{{ route('logout') }}">Log out</a>
+            </div>
           @else
+            <div class="panel-body">
             Hi, please <a href="login">login</a> to your RAW account if you wish to upload posts.
+            </div>
           @endif
 
           </div>

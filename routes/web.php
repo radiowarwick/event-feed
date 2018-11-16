@@ -20,12 +20,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post', 'PostController@getPostPage');
+//Route::get('/','PostController@getAllPostHTML')->name('generatePosts');
+Route::get('/post', 'PostController@getPostPage')->name('post');
+
+
 
 Route::get('/add', function () {
     return view('manage.add');
 });
-
 
 //login controller routing
 Route::post('/auth/login','Auth\LoginController@postLogin')->name('post-login');
