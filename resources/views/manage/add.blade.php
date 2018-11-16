@@ -10,12 +10,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img src="img/logo.png" height="48px">
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="{{ route('feed') }}">Home</a></li>
+            <li><a href="{{ route('logout') }}">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -175,30 +174,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-          <div class="[ panel panel-default ] panel-marawthon photo">
-            <div class="panel-body">
-              <table>
-                <thead>
-                   <tr>
-                    <th width="10%"></th>
-                    <th width="70%">Content</th>
-                    <th width="20%">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>test</td>
-                  <td><a href="hide.php?id=&hidden="><i class="fa fa-circle"></i></a><a href="delete.php?id="><i class="fa fa-times"></i></a></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="[ panel panel-default ] panel-marawthon photo">
@@ -299,42 +275,3 @@
     });
   });
 </script>
-
-<?php
-/*
-############### THIS NEEDS PUTTING IN A CONTROLLER ###############
-
-# Load Twitter class
-require_once('twitter/twitteroauth/twitteroauth.php');
-
-############### THIS NEEDS PUTTING IN THE ENV FILE ###############
-# Define constants
-define('TWEET_LIMIT', 1);
-define('TWITTER_USERNAME', 'raw1251am');
-define('CONSUMER_KEY', '');
-define('CONSUMER_SECRET', '');
-define('ACCESS_TOKEN', '');
-define('ACCESS_TOKEN_SECRET', '');
-
-# Create the connection
-$twitter = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-
-# Load the Tweets
-$tweets = $twitter->get('statuses/show', array('id' => $_POST['id']));
-
-# Access as an object
-$tweetText = $tweets->text;
-
-# Make links active
-$tweetText = preg_replace("#(http://|(www.))(([^s<]{4,68})[^s<]*)#", '<a href="http://$2$3" target="_blank">$1$2$4</a>', $tweetText);
-
-# Linkify user mentions
-$tweetText = preg_replace('/(^|\s)@([a-z0-9_]+)/i', '$1<a href="http://www.twitter.com/$2" target="_blank">@$2</a>', $tweetText);
-
-# Linkify tags
-$tweetText = preg_replace('/(^|\s)#([a-z0-9_]+)/i', '$1<a href="http://twitter.com/search?q=$2" target="_blank">#$2</a>', $tweetText);
-
-# Output
-echo $tweetText;
-*/
-?>
