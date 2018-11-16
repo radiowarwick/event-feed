@@ -23,6 +23,9 @@ class Post extends Model
     case 2:
       return $this->generateArticle();
       break;
+    case 4:
+      return $this->generateYoutube();
+      break;
     }
   }
 
@@ -79,6 +82,11 @@ class Post extends Model
   private function generateArticle(){
     $article = Article::where('id',$this->url)->first();
     return $article->getHTML();
+  }
+
+  private function generateYoutube(){
+    $video = YoutubeVideo::where('id',$this->url)->first();
+    return $video->getHTML();
   }
 
 }

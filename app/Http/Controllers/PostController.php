@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Article;
+use App\YoutubeVideo;
 
 class PostController extends Controller
 {
@@ -45,7 +46,7 @@ class PostController extends Controller
         $this->uploadPhoto();
         break;
       case 4:
-        $this->uploadYoutube();
+        $this->uploadYoutube($request);
         break;
     }
     return redirect('/');
@@ -70,6 +71,20 @@ class PostController extends Controller
     $newArticle->user = auth()->user()->name;
     $newArticle->save();
     $newPost->url = $newArticle->id; 
+    $newPost->save();
+  }
+
+  public function uploadYoutube(Request $request){
+    $newPost = new Post;
+    $newPost->uid = auth()->user()->getLdapAttribute("uid");
+    $newPost->type = 4;
+    $newYoutubeVideo = new YoutubeVideo;
+    $newYoutubeVideo->title = $request->input('title');
+    $newYoutubeVideo->videolink = $request->input('video');
+    $newYoutubeVideo->description = $request->input('description');
+    $newYoutubeVideo->user = auth()->user()->name;
+    $newYoutubeVideo->save();
+    $newPost->url = $newYoutubeVideo->id;
     $newPost->save();
   }
 
