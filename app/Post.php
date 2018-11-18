@@ -12,7 +12,6 @@ class Post extends Model
   protected $table = 'posts';
   protected $primaryKey = 'id';
   protected $keyType = 'string';
-  public $timestamps = false;
 
 
   public function generateHTML(){
@@ -37,11 +36,10 @@ class Post extends Model
     $twitter = new TwitterOAuth(env("CONSUMER_KEY"), env("CONSUMER_SECRET"), env("ACCESS_TOKEN"), env("ACCESS_TOKEN_SECRET"));
     
     # Load the Tweets
-    $tweets = $twitter->get('statuses/show', array('id' => $this->url));
+    $tweets = $twitter->get('statuses/show', array('id' => $this->url, 'tweet_mode' => 'extended'));
     
     # Access as an object
-    
-    $tweetText = $tweets->text;
+    $tweetText = $tweets->full_text;
 
     
     # Make links active
@@ -71,8 +69,11 @@ class Post extends Model
                   <p class='meta' style='margin:0;'>
                   Posted by "
                   .User::where('username',$this->uid)->first()->name.
-                  "
-                  </p>
+		  " on "
+		  .date_format($this->created_at,"D").
+		  " at "
+		  .date_format($this->created_at,"H:i").
+                  "</p>
                   </div>
               </div>
               </div>
