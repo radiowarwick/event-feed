@@ -16,12 +16,13 @@
           else if($(this).attr("data-state") == "playing") {
             audio.pause();
             $(this).attr("data-state", "stopped");
-            $(this).text("Play");
+            $(this).text("Listen");
           }
         });
 
         audio.onloadeddata = function(){
-          $("#btn-play").text("Stop");
+          if($("#btn-play").attr("data-state") == "playing")
+            $("#btn-play").text("Stop");
         };
       });
     </script>
