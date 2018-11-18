@@ -12,8 +12,27 @@
 |
 */
 
+use Carbon\Carbon;
+
 Route::get('/', function() {
-    return view('feed');
+	$now = Carbon::now();
+	$finish = Carbon::create(2018, 11, 23, 16, 0, 0, 'Europe/London');
+
+	$interval = $now->diffAsCarbonInterval($finish);
+	$left = '';
+	$hours = $interval->h + ($interval->d * 24);
+	
+	if($hours > 0) {
+		$left = $hours . str_plural(' hour', $hours);
+	}
+	if($interval->i > 0) {
+		$left .= ' ' . $interval->i . str_plural(' minute', $interval->i);
+	}
+	if($left != '') {
+		$left .= ' remaining';
+	}
+
+    return view('feed')->with('remaining', $left);
 })->name('feed');
 
 Auth::routes();

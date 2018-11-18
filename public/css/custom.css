@@ -1,12 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 body {
-    background-color: #d6a33f;
+    background-color: #d3af37;
     padding-top: 60px;
     padding-bottom: 30px;
-/*    background: url(../images/bg.jpg);
-    background-attachment: fixed;
-    background-size: cover;*/
 }
 
 .panel-marawthon {
