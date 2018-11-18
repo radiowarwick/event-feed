@@ -32,54 +32,9 @@ class Post extends Model
   }
 
   private function generateTweet(){
-    # Create the connection
-    $twitter = new TwitterOAuth(env("CONSUMER_KEY"), env("CONSUMER_SECRET"), env("ACCESS_TOKEN"), env("ACCESS_TOKEN_SECRET"));
-    
-    # Load the Tweets
-    $tweets = $twitter->get('statuses/show', array('id' => $this->url, 'tweet_mode' => 'extended'));
-    
-    # Access as an object
-    $tweetText = $tweets->full_text;
-
-    
-    # Make links active
-    $tweetText = preg_replace("#(http://|(www.))(([^s<]{4,68})[^s<]*)#", '<a href="http://$2$3" target="_blank">$1$2$4</a>', $tweetText);
-    
-    # Linkify user mentions
-    $tweetText = preg_replace('/(^|\s)@([a-z0-9_]+)/i', '$1<a href="http://www.twitter.com/$2" target="_blank">@$2</a>', $tweetText);
-    
-    # Linkify tags
-    $tweetText = preg_replace('/(^|\s)#([a-z0-9_]+)/i', '$1<a href="http://twitter.com/search?q=$2" target="_blank">#$2</a>', $tweetText);
-    
-    $html = "<div class='row'>
-              <div class='[ col-xs-12 col-sm-offset-2 col-sm-8 ]'>
-              <div class='[ panel panel-default ] panel-marawthon'>
-                <div class='panel-heading'>
-                  <img class='[ profile-img ]' src='"
-                  .$tweets->user->profile_image_url.
-                  "'>
-                  <h5><span><a href='".$tweets->user->url."'>@".$tweets->user->name."</a></span></h5>
-                </div>
-                <hr style='width: 30%; margin-bottom: 25px;'>
-                <div class='panel-body'> "
-            .$tweetText.
-            "   </div> 
-                <div class='panel-footer'>
-                  <hr>
-                  <p class='meta' style='margin:0;'>
-                  Posted by "
-                  .User::where('username',$this->uid)->first()->name.
-		  " on "
-		  .date_format($this->created_at,"D").
-		  " at "
-		  .date_format($this->created_at,"H:i").
-                  "</p>
-                  </div>
-              </div>
-              </div>
-            </div>";
-    return $html;
-    }
+    $tweet = Tweet::where('id',$this->url)->first();
+    return $tweet->getHTML();
+  }
 
   private function generateInstagram(){
     //$post = get('statuses/show', array('id' => $this->url));

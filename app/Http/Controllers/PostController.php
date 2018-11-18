@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Article;
 use App\YoutubeVideo;
+use App\Tweet;
 
 class PostController extends Controller
 {
@@ -56,10 +58,40 @@ class PostController extends Controller
   }
 
   public function uploadTweet(Request $request){
+    # Create the connection
+    $twitter = new TwitterOAuth(env("CONSUMER_KEY"), env("CONSUMER_SECRET"), env("ACCESS_TOKEN"), env("ACCESS_TOKEN_SECRET"));
+    
+    # Load the Tweets
+    $tweets = $twitter->get('statuses/show', array('id' => $request->input('tweet-id'), 'tweet_mode' => 'extended'));
+    
+    # Access as an object
+    $tweetText = $tweets->full_text;
+
+    
+    # Make links active
+    $tweetText = preg_replace("#(http://|(www.))(([^s<]{4,68})[^s<]*)#", '<a href="http://$2$3" target="_blank">$1$2$4</a>', $tweetText);
+    
+    # Linkify user mentions
+    $tweetText = preg_replace('/(^|\s)@([a-z0-9_]+)/i', '$1<a href="http://www.twitter.com/$2" target="_blank">@$2</a>', $tweetText);
+    
+    # Linkify tags
+    $tweetText = preg_replace('/(^|\s)#([a-z0-9_]+)/i', '$1<a href="http://twitter.com/search?q=$2" target="_blank">#$2</a>', $tweetText);
+
+
+
     $newPost = new Post;
     $newPost->url = $request->input('tweet-id');
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
+    $newTweet = new Tweet;
+    $newTweet->handle = $tweets->user->screen_name;
+    $newTweet->twitter_name = $tweets->user->name; 
+    $newTweet->tweet_text = $tweetText;
+    $newTweet->profile_image_url = $tweets->user->profile_image_url; 
+    $newTweet->user_url = $tweets->user->url; 
+    $newTweet->uid = auth()->user()->getLdapAttribute('uid');
+    $newTweet->save();
     $newPost->type = 0;
+    $newPost->url = $newTweet->id; 
     $newPost->save();
   }
 
