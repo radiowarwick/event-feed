@@ -45,6 +45,26 @@
             <audio id="audio" style="display:none;" controls>
               <source src="https://streams.radio.warwick.ac.uk/raw-high.mp3" type="audio/mpeg">
             </audio>
+
+            @if($remaining != '')
+              <p>
+                <center>
+                  <h3>
+                    {{ $remaining }}
+                  </h3>
+                </center>
+              </p>
+            @else
+              <p>
+                <center>
+                  <h3>
+                    RAW Marathon 2018 is over!
+                    <br>
+                    Thank you for all the donations!
+                  </h3>
+                </center>
+              </p>
+            @endif
           </div>
         </div>
       </div>
