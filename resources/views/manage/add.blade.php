@@ -44,7 +44,6 @@
               <div class="input-group">
                 <input id="tweet-id" name="tweet-id" type="text" placeholder="" class="form-control input-md">  
                 <span class="input-group-btn">
-                  <button id="tweet-preview" class="btn btn-primary" >Preview</button>
                 </span>
               </div><!-- /input-group -->
             </div>
@@ -137,7 +136,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="submit"></label>
             <div class="col-md-8">
-              <input type="submit" id="submit" name="submit" class="btn btn-primary">
+              <input type="submit" id="submit" name="submit" value="Submit" class="btn btn-primary">
             </div>
           </div>
 
