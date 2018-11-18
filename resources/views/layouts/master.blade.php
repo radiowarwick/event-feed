@@ -12,15 +12,16 @@
   <title>RAW 1251AM</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="sticky-footer-navbar.css" rel="stylesheet">
-  <link href="{{asset('css/custom.css')}}" rel="stylesheet">
-  <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
+  <link href="/css/custom.css" rel="stylesheet">
+  <link href="/css/font-awesome.css" rel="stylesheet">
 
   <!-- Bootstrap core JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/custom.js" type="text/javascript"></script>
 
