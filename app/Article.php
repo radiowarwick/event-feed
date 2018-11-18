@@ -8,7 +8,6 @@ class Article extends Model
 {
   protected $table = 'articles';
   protected $primaryKey = 'id';
-  public $timestamps = false;
   public function getHTML(){
       $html = "<div class='row'>
         <div class='[ col-xs-12 col-sm-offset-2 col-sm-8 ]'>
@@ -26,7 +25,11 @@ class Article extends Model
               <hr>
               <p class='meta' style='margin:0;'> Posted by "
             .$this->user.
-            ".</p>
+	      " on "
+	     .date_format($this->created_at,"D").
+	      " at "
+	      .date_format($this->created_at,"H:i").
+	     "</p>
             </div>
           </div>
         </div>

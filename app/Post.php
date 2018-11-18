@@ -105,7 +105,11 @@ class Post extends Model
               <hr>
               <p class='meta' style='margin: 0;'> Posted by "
               .User::where('username',$this->uid)->first()->name.
-              "<span style='float: right;'><a href='https://www.facebook.com/sharer/sharer.php?u=https://live.radio.warwick.ac.uk' target='_blank'><i class='fa fa-facebook'></a></i><a href='http://twitter.com/share?text=&url=https://live.radio.warwick.ac.uk&hashtags=marawthon18&via=raw1251am' target='_blank'><i class='fa fa-twitter' style='margin: 0 20px;'></a></i><a href='https://plus.google.com/share?url=https://live.radio.warwick.ac.uk' onclick='javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;'><i class='fa fa-google'></i></a></span></p>
+	      " on "
+	     .date_format($this->created_at,"D").
+	      " at "
+	      .date_format($this->created_at,"H:i").
+	      "<span style='float: right;'><a href='https://www.facebook.com/sharer/sharer.php?u=https://live.radio.warwick.ac.uk' target='_blank'><i class='fa fa-facebook'></a></i><a href='http://twitter.com/share?text=&url=https://live.radio.warwick.ac.uk&hashtags=marawthon18&via=raw1251am' target='_blank'><i class='fa fa-twitter' style='margin: 0 20px;'></a></i><a href='https://plus.google.com/share?url=https://live.radio.warwick.ac.uk' onclick='javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;'><i class='fa fa-google'></i></a></span></p>
             </div>
           </div>
         </div>

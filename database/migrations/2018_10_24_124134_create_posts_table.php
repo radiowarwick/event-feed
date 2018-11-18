@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
           $table->string('uid');
           $table->string('url',100);
           $table->string('type',10);
+	  $table->timestamps();
         });
     }
 

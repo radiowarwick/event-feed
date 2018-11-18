@@ -2,70 +2,18 @@
 <?php use App\Post; use App\Http\Controllers\PostController;?>
 <!-- Begin page content -->
     <div class="container">
-    <!--
-      <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-          <div class="[ panel panel-default ] panel-marawthon twitter">
-            <div class="panel-heading">
-              <h3>Listen live</h3>
-              <h5><span>Some sample intro text should go here with an embedded player</span></h5>
-            </div>
-            <div class="panel-body">
-              <p>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
 
-      <!--
       <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-          <div class="[ panel panel-default ] panel-marawthon twitter">
-            <div class="panel-heading">
-              <h3>Sample headline audio post</h3>
-              <h5><span>xxx were interviewed on Monday's edition on RaW News Insight. Use the player below to listen again!</span></h5>
-            </div>
-            <div class="panel-body">
-              <p>
-                <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Fdjjavo%2Ftux-tuesdays-24-260515%2F"&amp;mini=1&amp;embed_uuid=3ed1107b-5ffd-4071-bce6-9e0a7e74e4d1&amp;replace=0&amp;hide_cover=1&amp;light=1&amp;embed_type=widget_standard&amp;hide_tracklist=1" frameborder="0"></iframe>
-              </p>
-            </div>
-          </div>
-        </div>
+	   <div class="col-xs-12 col-sm-offset-2 col-sm-2">
+               <a href="#" class="btn btn-lg btn-block" onclick="window.open('http://player.radio.warwick.ac.uk', 'radioplayer', 'height=665,width=380');">Listen</a>
+           </div>	      
       </div>
-      -->
-
-      <!--
-      <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-          <div class="[ panel panel-default ] panel-marawthon twitter">
-            <div class="panel-heading">
-              <img class="[ profile-img ]" src="https://pbs.twimg.com/profile_images/805123647388188672/5KfS_32g.jpg" alt="thedjjavo on Twitter" />
-              <h3>Praise for the team at RAW 1251AM</h3>
-              <h5><span><a href="http://www.twitter.com/thedjjavo">@thedjjavo</a></span></h5>
-            </div>
-            <hr style="width: 30%; margin-bottom: 25px;">
-            <div class="panel-body">
-              <p>
-                Today at @RAW1251AM we had three events to cover on @warwickuni campus, an radio OB, taking the studio outside in addition to a live video broadcast and a societies exhibition. All made possible due to the sheer dedication of our members, working together as a team.
-              </p>
-            </div>
-            <div class="panel-footer">
-              <hr>
-              <p class="meta" style="margin: 0;">Posted by James Van Hinsbergh at 2:44pm<span style="float: right;"><a href="https://www.facebook.com/sharer/sharer.php?u=https://live.radio.warwick.ac.uk" target="_blank"><i class="fa fa-facebook"></a></i><a href="http://twitter.com/share?text=&url=https://live.radio.warwick.ac.uk&hashtags=marawthon18&via=raw1251am" target="_blank"><i class="fa fa-twitter" style="margin: 0 20px;"></a></i><a href="https://plus.google.com/share?url=https://live.radio.warwick.ac.uk" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google"></i></a></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
 
       <div class="row">
         <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
           <div class="col-md-2 offset-md-2"></div>
           <div class="col-md-10">
-            <div id="jg-widget-raw1251am-536" class="text-center"></div><script>(function(){var id="jg-widget-raw1251am-536",doc=document,pfx=(window.location.toString().indexOf("https")==0)?"https":"http";var el=doc.getElementById(id);if(el){var js=doc.createElement('script');js.src=pfx+"://widgets.justgiving.com/fundraisingpage/raw1251am?enc=ZT1qZy13aWRnZXQtcmF3MTI1MWFtLTUzNiZ3PTQwMCZiPWltYWdlLGRvbmF0ZSZpYj1vd25lcix0aXRsZSxzdW1tYXJ5LHByb2dyZXNzLHJhaXNlZCx0YXJnZXQ%3D";el.parentNode.insertBefore(js, el);}})();</script>
+		<div id="jg-widget-raw1251am-820"></div><script>(function(){var id="jg-widget-raw1251am-820",doc=document,pfx=(window.location.toString().indexOf("https")==0)?"https":"http";var el=doc.getElementById(id);if(el){var js=doc.createElement('script');js.src=pfx+"://widgets.justgiving.com/fundraisingpage/raw1251am?enc=ZT1qZy13aWRnZXQtcmF3MTI1MWFtLTgyMCZ3PTQwMCZiPWlubmVyLGRvbmF0ZSZpYj1wcm9ncmVzcyxyYWlzZWQsdGFyZ2V0";el.parentNode.insertBefore(js, el);}})();</script>
           </div>
         </div>
       </div>
@@ -78,11 +26,11 @@
             Hello {{ auth()->user()->name}}, welcome to the charity feed.
             </div>            
             <div class="panel-body">
-            If you want to post do it <a href="{{ route('post') }}">here</a>.
+            If you want to post do it <a href="{{route('post')}}">here</a>.
             </div>
             <br>
             <div class="panel-footer">
-            <a href="{{ route('logout') }}">Log out</a>
+            <a href="{{ route('logout')}}">Log out</a>
             </div>
           @else
             <div class="panel-body">
@@ -90,6 +38,20 @@
             </div>
           @endif
 
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+          <div class="[ panel panel-default ] panel-marawthon twitter">
+            <div class="panel-heading">
+              <h3>Listen live</h3>
+            </div>
+            <div class="panel-body">
+              <p>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -159,6 +121,7 @@ $ctrl = new PostController;
 echo $ctrl->getAllPostHTML();
 ?>
 
+<!--
     <div class="row">
       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
         <div class="[ panel panel-default ] panel-marawthon photo">
@@ -167,5 +130,6 @@ echo $ctrl->getAllPostHTML();
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 </div>
+

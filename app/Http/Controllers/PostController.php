@@ -52,7 +52,7 @@ class PostController extends Controller
         $this->uploadInstagram($request);
         break;
     }
-    return redirect('/');
+    return redirect()->route('feed');
   }
 
   public function uploadTweet(Request $request){
