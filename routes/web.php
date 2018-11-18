@@ -12,6 +12,7 @@
 |
 */
 
+URL::forceRootUrl(env("APP_URL"));
 use Carbon\Carbon;
 
 Route::get('/', function() {
