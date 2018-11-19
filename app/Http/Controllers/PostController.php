@@ -62,8 +62,12 @@ class PostController extends Controller
     $twitter = new TwitterOAuth(env("CONSUMER_KEY"), env("CONSUMER_SECRET"), env("ACCESS_TOKEN"), env("ACCESS_TOKEN_SECRET"));
     
     # Load the Tweets
-    $tweet_id = $request->input('tweet-id');
-    $tweets = $twitter->get('statuses/show', array('id' => $tweet_id, 'tweet_mode' => 'extended'));
+    $user_input = $request->input('tweet-id');
+    $separated = explode("/",$user_input);
+    $idString = array_pop($separated);
+    if (strpos($idString,"?")!==false) $idString = substr($idString,0,strpos($idString,"?"));
+    if (strpos($idString,"#")!==false) $idString = substr($idString,0,strpos($idString,"#"));
+    $tweets = $twitter->get('statuses/show', array('id' => $idString, 'tweet_mode' => 'extended'));
     
     # Access as an object
     try{
@@ -88,8 +92,8 @@ class PostController extends Controller
     $newPost->url = $request->input('tweet-id');
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
     $newTweet = new Tweet;
-    $newTweet->handle = $tweets->user->screen_name;
-    $newTweet->twitter_name = $tweets->user->name; 
+    $newTweet->handle = $tweets->user->screen_name ;
+    $newTweet->twitter_name = $tweets->user->name;
     $newTweet->tweet_text = $tweetText;
     $newTweet->profile_image_url = $tweets->user->profile_image_url; 
     $newTweet->user_url = $tweets->user->url; 
