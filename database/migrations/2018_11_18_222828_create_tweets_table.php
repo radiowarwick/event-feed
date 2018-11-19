@@ -18,7 +18,7 @@ class CreateTweetsTable extends Migration
             $table->string('uid',30);
             $table->string('handle',30);
             $table->string('twitter_name',30);
-            $table->string('tweet_text',500);
+            $table->string('tweet_text',2000);
             $table->string('profile_image_url',100);
             $table->string('user_url',100)->nullable();
             $table->timestamps();

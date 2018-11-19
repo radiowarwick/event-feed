@@ -12,6 +12,8 @@
 |
 */
 
+if(env('APP_ENV') == 'production')
+	URL::forceScheme('https');
 URL::forceRootUrl(env("APP_URL"));
 use Carbon\Carbon;
 
