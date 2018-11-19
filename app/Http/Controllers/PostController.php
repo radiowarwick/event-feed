@@ -62,10 +62,15 @@ class PostController extends Controller
     $twitter = new TwitterOAuth(env("CONSUMER_KEY"), env("CONSUMER_SECRET"), env("ACCESS_TOKEN"), env("ACCESS_TOKEN_SECRET"));
     
     # Load the Tweets
-    $tweets = $twitter->get('statuses/show', array('id' => $request->input('tweet-id'), 'tweet_mode' => 'extended'));
+    $tweet_id = $request->input('tweet-id');
+    $tweets = $twitter->get('statuses/show', array('id' => $tweet_id, 'tweet_mode' => 'extended'));
     
     # Access as an object
-    $tweetText = $tweets->full_text;
+    try{
+      $tweetText = $tweets->full_text;
+    } catch(\Exception $e){
+      return redirect()->route('post');
+    }
 
     
     # Make links active
@@ -97,6 +102,7 @@ class PostController extends Controller
 
 
   public function uploadArticle(Request $request){
+    if (empty($request->input('title')) or empty($request->input('content'))) return redirect()->route('post');
     $newPost = new Post;
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
     $newPost->type = 2;
@@ -110,6 +116,7 @@ class PostController extends Controller
   }
 
   public function uploadYoutube(Request $request){
+    if(strlen($request->input('video'))!=11 or empty($request->input('title')) or empty($request->input('description'))) return redirect()->route('post');
     $newPost = new Post;
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
     $newPost->type = 4;
@@ -124,6 +131,7 @@ class PostController extends Controller
   }
 
   public function uploadInstagram($request){
+    if (empty($request->input('instagram-id')) || strlen($request->input('instagram-id')) != 11) return redirect()->route('post');
     $newPost = new Post;
     $newPost->uid = auth()->user()->getLdapAttribute("uid");
     $newPost->type = 5;
