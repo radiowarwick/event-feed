@@ -39,7 +39,7 @@
 
           <!-- Text input-->
           <div class="form-group" style="display: none;">
-            <label class="col-md-4 control-label" for="tweet-id">Tweet ID: </label>  
+            <label class="col-md-4 control-label" for="tweet-id">Link to Tweet: </label>  
             <div class="col-md-8">
               <div class="input-group">
                 <input id="tweet-id" name="tweet-id" type="text" placeholder="" class="form-control input-md">  
@@ -61,7 +61,6 @@
 
           <!-- Text input-->
           <div class="form-group" style="display: none;">
-            <label class="col-md-4 control-label" for="tweet-result">Preview: </label>  
             <div class="col-md-8">
             <p id="tweet-result" style="padding-top: 7px;"></h3>
             </div>
