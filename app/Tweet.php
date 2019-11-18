@@ -27,7 +27,7 @@ class Tweet extends Model
                   Posted by "
                   .User::where('username',$this->uid)->first()->name.
 		  " on "
-		  .date_format($this->created_at,"D").
+		  .date_format($this->created_at,"l").
 		  " at "
 		  .date_format($this->created_at,"H:i").
                   "</p>

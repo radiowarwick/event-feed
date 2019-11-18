@@ -19,7 +19,7 @@ use Carbon\Carbon;
 
 Route::get('/', function() {
 	$now = Carbon::now();
-	$finish = Carbon::create(2018, 11, 23, 16, 0, 0, 'Europe/London');
+	$finish = Carbon::create(2019, 11, 21, 19, 0, 0, 'Europe/London');
 
 	$interval = $now->diffAsCarbonInterval($finish);
 	$left = '';
