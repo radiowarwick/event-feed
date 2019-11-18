@@ -3,8 +3,36 @@
 @section('content')
 
 <?php use App\Post; use App\Http\Controllers\PostController;?>
+  <div class="modal fade" id="modal-message" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Message the Studio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+          </div>
+          {{ csrf_field() }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="send-message">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <script type="text/javascript">
-      $(document).ready(function(){
+      $(document).ready(() => {
         $("#btn-play").click(function(){
           audio = document.getElementById("audio");
           if($(this).attr("data-state") == "stopped") {
@@ -19,6 +47,23 @@
             $(this).text("Listen");
           }
         });
+
+        $("#send-message").click(() => {
+          name = $("#name").val();
+          msg = $("#message").val();
+
+          $.post("/msg", {
+            "name": name,
+            "message": msg,
+            "_token": $("[name='_token']").val()
+          }, () => {
+            $("#modal-message").modal("hide");
+            $("#name").val("");
+            $("#message").val("");
+          }).fail(() => {
+            alert("Error sending message.");
+          });
+        })
 
         audio.onloadeddata = function(){
           if($("#btn-play").attr("data-state") == "playing")
@@ -39,6 +84,7 @@
             <br>
             <p>
               <button id="btn-play" type="button" data-state="stopped" class="btn btn-lg btn-success btn-block">Listen</button>
+              <button type="button" class="btn btn-lg btn-danger btn-block" data-toggle="modal" data-target="#modal-message">Send a Message</button>
             </p>
 
             <audio id="audio" style="display:none;" controls>
@@ -48,7 +94,7 @@
             @if($remaining != '')
               <p>
                 <center>
-		  <h3>
+		              <h3>
                   	{{ $remaining }}
                   </h3>
                 </center>

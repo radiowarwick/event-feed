@@ -58,3 +58,6 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //post request for uploading audio, sends request to uploadPost function in the postController
 Route::post('/manage/add','PostController@uploadPost')->name('upload-post');
+
+
+Route::post('/msg', 'PostController@send_message');

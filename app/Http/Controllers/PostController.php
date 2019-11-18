@@ -8,6 +8,7 @@ use App\Post;
 use App\Article;
 use App\YoutubeVideo;
 use App\Tweet;
+use GuzzleHttp;
 
 class PostController extends Controller
 {
@@ -143,4 +144,18 @@ class PostController extends Controller
     $newPost->save();
   }
 
+
+  public function send_message(Request $request) {
+    $client = new GuzzleHttp\Client();
+
+    $client->request('POST', 'https://digiplay.radio.warwick.ac.uk/api/message?key=' . env('DIGIPLAY_KEY', ''),
+      [
+        'form_params' => [
+          'sender' => $request->input('name'),
+          'subject' => 'Message from the website',
+          'body' => $request->input('message'),
+        ]
+      ]
+    );
+}
 }
